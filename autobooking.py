@@ -8,7 +8,7 @@ from datetime import timedelta, date
 import time
 
 credentials = {"username": "MY_USERNAME", "password": "MY_PASSWORD"}
-activity_name = 'MY_ACTIVITY'
+activity_name = 'MY_ACTIVITY' # See activities.txt for correct activity_name
 
 book_day = date.today() + timedelta(days=7)
 login_url = "https://ssif.brpsystems.com/brponline/api/ver3/auth/login"
@@ -32,7 +32,6 @@ def main():
         booking_headers['Authorization'] = token
 
         while book_activity(s, booking_url, booking_payload, booking_headers) != 201:
-            print(booking_headers)
             print(f"Failed on attempt {attempts}...")
             attempts += 1
             time.sleep(60)
