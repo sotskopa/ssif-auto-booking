@@ -8,7 +8,7 @@ from datetime import timedelta, date
 import time
 
 credentials = {"username": "MY_USERNAME", "password": "MY_PASSWORD"}
-activity_name = 'MY_ACTIVITY' #See activities.txt for correct activity_names
+activity_name = 'MY_ACTIVITY' #See activities.txt for correct activity_name
 
 book_day = date.today() + timedelta(days=7)
 login_url = "https://ssif.brpsystems.com/brponline/api/ver3/auth/login"
