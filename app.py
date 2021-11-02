@@ -7,6 +7,7 @@ from datetime import timedelta, date
 import flask
 
 app = flask.Flask(__name__)
+CORS(app)
 
 login_url = "https://ssif.brpsystems.com/brponline/api/ver3/auth/login"
 slots_url = "https://ssif.brpsystems.com/brponline/api/ver3/businessunits/1/groupactivities"
