@@ -39,6 +39,8 @@ def login():
     res = {'username': 'null', 'access_token': 'null'}
     with req.Session() as s:
         r = s.post(login_url, json=flask.request.get_json(), headers=headers)
+        if r.status_code != 200:
+            return res
         res['username'] = r.json()['username']
         res['access_token'] = f"Bearer {r.json()['access_token']}"
     return res
@@ -55,9 +57,8 @@ def get_activity():
         # GET activities
         params = {'period.start': start_time, 'period.stop': stop_time, 'webCategory': 21}
         r = s.get(slots_url, params=params, headers=headers)
-        assert r.status_code == 200
         if r.status_code != 200:
-            raise Exception("Getting available activity slots resulted in an error.")
+            return {'activity_id': -1}
         return activity_id(r.json(), flask.request.get_json()['activity_name'], book_day)
 
 
