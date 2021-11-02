@@ -36,11 +36,9 @@ def activity_id(data, name, book_date):
 # POST login
 @app.route('/login', methods=['POST'])
 def login():
-    res = {}
+    res = {'username': 'null', 'access_token': 'null'}
     with req.Session() as s:
         r = s.post(login_url, json=flask.request.get_json(), headers=headers)
-        if r.status_code != 200:
-            raise Exception("Login resulted in an error. Make sure the credentials are correct.")
         res['username'] = r.json()['username']
         res['access_token'] = f"Bearer {r.json()['access_token']}"
     return res
