@@ -5,6 +5,7 @@ Autobooking for SSIF slots. Checks for slots exactly one week ahead (the entire 
 import requests as req
 from datetime import timedelta, date
 import flask
+from flask_cors import CORS
 
 app = flask.Flask(__name__)
 CORS(app)
