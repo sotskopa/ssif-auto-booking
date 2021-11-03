@@ -1,0 +1,46 @@
+.button-container-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.button-text {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.button-container {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.25;
+    pointer-events: none;
+    background-color: #5498c2c7;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 24px;
+    transition: 0.2s;
+    width: 50px;
+    cursor: pointer;
+}
+
+.button-container.red {
+    background-color: #be3a3ac7;
+}
+
+.button-container.red:hover {
+    background-color: #e64444c7;
+}
+
+.button-container.isActivated {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.button-container:hover {
+    background-color: #5aa0cf;
+}

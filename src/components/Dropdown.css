@@ -1,0 +1,7 @@
+.select {
+    font-weight: 800;
+}
+
+.form-group:focus-within .special-label {
+    color: #8dcdf8;
+}

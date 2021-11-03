@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  overflow: hidden;
+  font-family: "Zen Kaku Gothic Antique", "Times New Roman";
+}
+
+.cog-wheel {
+  padding-top: 20px;
+  color: #8697A6;
+}
+
+.outer-container {
+  background-color: #262626;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-align: left;
+}
+
+.inner-container {
+  position: relative;
+  width: 500px;
+  padding: 10px;
+}
+
+.credits {
+  color: #8697A6;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 900;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  position: relative;
+  text-align: left;
+  padding: 8px 0px;
+  font-size: 14px;
+}
+
+input {
+  font-size: 14px;
+  font-family: "Zen Kaku Gothic Antique";
+  font-weight: 800;
+}
