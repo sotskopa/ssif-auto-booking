@@ -24,11 +24,8 @@ def activity_id(data, name, book_date):
         if data[i]['name'] == name:
             num_slots += 1
             res['activity_id'] = data[i]['id']
-    if num_slots == 0:
-        raise Exception(f"No slots found for {name} on date {book_date.strftime('%Y-%m-%d')}")
-    elif num_slots > 1:
-        raise Exception(
-            f"Multiple ({num_slots}) slots found for {name} on date {book_date.strftime('%Y-%m-%d')}")
+    if num_slots == 0 or num_slots > 1:
+        return {'activity_id': -1}
     else:
         return res
 
@@ -50,7 +47,7 @@ def login():
 def get_activity():
     with req.Session() as s:
         # Get every slot on the day one week from today
-        book_day = date.today() + timedelta(days=7)
+        book_day = date.today() + timedelta(days=7, hours=1)
         start_time = book_day.strftime('%Y-%m-%dT00:00:00.000Z')
         stop_time = book_day.strftime('%Y-%m-%dT23:59:59.000Z')
 
@@ -72,4 +69,4 @@ def book_activity():
         booking_headers['Authorization'] = data['access_token']
         r = s.post(url, json=payload, headers=booking_headers)
         print(f"Status code {r.status_code}")
-        return r.status_code
+        return {'status_code': r.status_code}
